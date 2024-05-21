@@ -9,14 +9,14 @@ import today_Image from "../../assets/imgs/today.jpg"
 export default class TaskList extends Component{ // tem todas as características de um componente (herança)
     render(){
         return(
-            <view style ={styles.container}>
+            <View style ={styles.container}>
                 <ImageBackground source={today_Image} style={styles.background}> 
 
                 </ImageBackground>
-                <view>
+                <View style={(styles.taskList)}>
 
-                </view>
-            </view>
+                </View>
+            </View>
         )
     }
 } 
