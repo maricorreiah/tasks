@@ -7,6 +7,7 @@ import 'moment/locale/pt-br' //importa os padrões de horas no pt-br
 //referenciar a imagemm
 //../ sai da pasta
 import today_Image from "../../assets/imgs/today.jpg"
+import Task from "../components/Task" //import do task
 
 // cria uma classe padrão que será usada em outras partes do programa
 export default class TaskList extends Component{ // tem todas as características de um componente (herança)
@@ -23,8 +24,11 @@ export default class TaskList extends Component{ // tem todas as característica
                     </View>
                     
                 </ImageBackground>
-                <View style={(styles.taskList)}>
-                <Text>Lista de tarefas</Text>
+                <View style={(styles.taskList)}> /
+                    <Task/>
+                    <Task/>
+                    <Task/>
+                    {/*import dos tasks*/}
 
                 </View>
             </View>
