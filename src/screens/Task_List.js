@@ -25,10 +25,23 @@ export default class TaskList extends Component{ // tem todas as característica
                     
                 </ImageBackground>
                 <View style={(styles.taskList)}> /
-                    <Task/>
-                    <Task/>
-                    <Task/>
+                    <Task 
+                        description="Estudar para prova de História" //import dos tasks
+                        estimate_at={new Date()} //gerando uma data
+                        done_at={new Date()}
+                    />
+                    <Task
+                        description="Fazer a prova de história"
+                        estimate_at={new Date()}
+                        done_at={null} //essa informação ainda n existe
+                    />
+                    <Task
+                        description="Chorar após a prova de História"
+                        estimate_at={new Date()}
+                        done_at={null}
+                    />
                     {/*import dos tasks*/}
+
 
                 </View>
             </View>
