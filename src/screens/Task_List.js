@@ -7,6 +7,7 @@ import moment from "moment"
 import hoje_imagem from "../../assets/imgs/today.jpg"
 import common_Styles from "../styles/common_Styles"
 import Task from "../components/Task"
+import Add_Tarefa from "./Add_Tarefa"
 
 import "moment/locale/pt-br"
 
@@ -35,7 +36,7 @@ export default class Task_List extends Component {
         }]
     }
 
-    componentDidMount = () => {
+    componentDidMount = () => { //chamado quando a tela está pronta
         this.filtro_tarefas()
     }
 
@@ -43,10 +44,10 @@ export default class Task_List extends Component {
         this.setState({ mostra_tarefas_concluidas: !this.state.mostra_tarefas_concluidas }, this.filtro_tarefas)
     }
 
-    filtro_tarefas = () => {
+    filtro_tarefas = () => { 
         let tarefas_visiveis = null
         if(this.state.mostra_tarefas_concluidas){
-            tarefas_visiveis = [...this.state.tarefas]
+            tarefas_visiveis = [...this.state.tarefas] 
         }else{
             const pendente = tarefa => tarefa.data_conclusao === null
             tarefas_visiveis = this.state.tarefas.filter(pendente)
@@ -68,13 +69,16 @@ export default class Task_List extends Component {
 
     render() {
         const data_hoje = moment().locale('pt-br').format('ddd, D [de] MMMM')
+        //quando clica, as tarefas concluídas somem
         return (
             <View style={styles.principal}>
+            <Add_Tarefa/>
                 <ImageBackground source={hoje_imagem} style={styles.fundo}>
                     <View style={styles.barra_icone}>
                         <TouchableOpacity onPress={this.alternar_filtro}>
                             <Icon name={this.state.mostra_tarefas_concluidas ? 'eye' : 'eye-slash'} size={20} color="#FFF"></Icon>
                         </TouchableOpacity>
+                    
                     </View>
                     <View style={styles.barra_titulo}>
                         <Text style={styles.titulo}>Hoje</Text>
